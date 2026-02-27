@@ -17,6 +17,12 @@ This application seamlessly overlays ultra-fast object detection bounding boxes 
 
 ---
 
+## DEMO
+----
+https://github.com/user-attachments/assets/e1f034d2-01e4-40d0-b977-db27c0839bb6
+
+
+
 ## 🛠️ Architecture and Stack
 
 *   **Language**: Java (UI / ARCore interfacing), C++ (JNI / ncnn networking logic)
