@@ -1,4 +1,4 @@
-# ARCore NanoDet Object & Depth Detection
+#Object & Depth Detection Android Application
 
 An advanced, real-time Android machine learning application that pairs [Tencent's NanoDet](https://github.com/RangiLyu/nanodet) object detection architecture with Google's **ARCore Depth API**. 
 
