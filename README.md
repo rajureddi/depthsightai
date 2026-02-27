@@ -1,4 +1,4 @@
-#Object & Depth Detection Android Application
+## Object & Depth Detection Android Application
 
 An advanced, real-time Android machine learning application that pairs [Tencent's NanoDet](https://github.com/RangiLyu/nanodet) object detection architecture with Google's **ARCore Depth API**. 
 
@@ -16,7 +16,7 @@ This application seamlessly overlays ultra-fast object detection bounding boxes 
 *   **🕶️ Splash Screen Integration**: Boot into a stylized splash screen while the neural networks buffer into device memory automatically.
 
 ---
-
+Download the apk :[Here]()
 ## DEMO
 ----
 https://github.com/user-attachments/assets/e1f034d2-01e4-40d0-b977-db27c0839bb6
