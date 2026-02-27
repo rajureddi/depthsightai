@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00D4AA</item>
+        <item name="colorPrimaryDark">#0A0A0F</item>
+        <item name="colorAccent">#E94560</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- Set the selected item color -->
+        <item name="android:textColor">#00D4AA</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    
+    <!-- This controls the dropdown popup items -->
+    <style name="SpinnerPopupTheme" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#1A1A2E</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+</resources>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F"
+    android:fitsSystemWindows="true">
+
+    <!-- App Bar with Glassmorphism -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:contentScrim="#00000000">
+
+            <!-- Glassmorphic Control Panel -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#1A1A2E"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Header -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI Vision"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.02"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Real-time Object Detection-Depth Estimation"
+                        android:textColor="#8B8B9E"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="sans-serif"/>
+
+                    <!-- Controls Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Mode Selector -->
+                        <RadioGroup
+                            android:id="@+id/radioGroupMode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="12dp">
+
+                            <RadioButton
+                                android:id="@+id/radioObjectOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Obj. Detect"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:buttonTint="#00D4AA" />
+
+                            <RadioButton
+                                android:id="@+id/radioObjectDepth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Obj. Detect + Depth"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:checked="true"
+                                android:buttonTint="#00D4AA" />
+                        </RadioGroup>
+
+                        <!-- Model Selector -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            app:cardBackgroundColor="#16213E"
+                            app:cardCornerRadius="16dp"
+                            app:strokeWidth="0dp"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="16dp">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_model"
+                                    app:tint="#00D4AA"
+                                    android:layout_marginEnd="12dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spinnerModel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:entries="@array/model_array"
+                                    android:popupBackground="#1A1A2E"
+                                    android:theme="@style/SpinnerTheme"
+                                    app:popupTheme="@style/SpinnerPopupTheme" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <Space
+                            android:layout_width="12dp"
+                            android:layout_height="wrap_content"/>
+
+                        <!-- CPU/GPU Selector -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            app:cardBackgroundColor="#16213E"
+                            app:cardCornerRadius="16dp"
+                            app:strokeWidth="0dp"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="16dp">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_cpu"
+                                    app:tint="#E94560"
+                                    android:layout_marginEnd="12dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spinnerCPUGPU"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:entries="@array/cpugpu_array"
+                                    android:theme="@style/SpinnerTheme"
+                                    app:popupTheme="@style/SpinnerPopupTheme"
+                                    android:popupBackground="#1A1A2E"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Camera Preview Container with Neon Border -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#000000"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="2dp"
+                app:strokeColor="#00D4AA">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="400dp">
+
+                    <!-- GL Surface for Camera -->
+                    <android.opengl.GLSurfaceView
+                        android:id="@+id/cameraview_gl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <!-- Overlay Surface -->
+
+                    <!-- Scanning Animation Overlay -->
+                    <!-- Overlay Surface -->
+                    <SurfaceView
+                        android:id="@+id/cameraview_overlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@drawable/scan_line_gradient"
+                        android:layout_gravity="top">
+                        <tag android:id="@+id/scan_animation" android:value="true"/>
+                    </View>
+
+                    <!-- Corner Markers -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/corner_marker"
+                        android:layout_gravity="top|start"
+                        android:layout_margin="16dp"
+                        app:tint="#00D4AA"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/corner_marker"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="16dp"
+                        android:rotation="90"
+                        app:tint="#00D4AA"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/corner_marker"
+                        android:layout_gravity="bottom|start"
+                        android:layout_margin="16dp"
+                        android:rotation="270"
+                        app:tint="#00D4AA"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/corner_marker"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="16dp"
+                        android:rotation="180"
+                        app:tint="#00D4AA"/>
+
+                    <!-- FPS Counter -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="24dp"
+                        app:cardBackgroundColor="#80000000"
+                        app:cardCornerRadius="12dp"
+                        app:strokeWidth="0dp">
+
+                        <TextView
+                            android:id="@+id/fps_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30 FPS"
+                            android:textColor="#00FF88"
+                            android:textSize="12sp"
+                            android:fontFamily="monospace"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"/>
+                    </com.google.android.material.card.MaterialCardView>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Results Panel -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#1A1A2E"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#2A2A3E">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Results Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_detection"
+                            app:tint="#00D4AA"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Detections"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/detection_count_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 objects"
+                            app:chipBackgroundColor="#0F3460"
+                            android:textColor="#00D4AA"
+                            app:chipStrokeWidth="0dp"
+                            app:chipMinHeight="32dp"/>
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#2A2A3E"
+                        android:layout_marginHorizontal="20dp"/>
+
+                    <!-- Scrollable Results -->
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:padding="20dp"
+                        android:scrollbars="none"
+                        android:overScrollMode="never">
+
+                        <TextView
+                            android:id="@+id/result_textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Waiting for detections..."
+                            android:textColor="#8B8B9E"
+                            android:textSize="16sp"
+                            android:lineSpacingMultiplier="1.4"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start|top"/>
+                    </androidx.core.widget.NestedScrollView>
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button for Quick Capture -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_camera"
+        app:backgroundTint="#00D4AA"
+        app:tint="#FFFFFF"
+        app:elevation="8dp"
+        app:fabSize="normal"
+        app:maxImageSize="28dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
